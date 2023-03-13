@@ -118,7 +118,6 @@ class CreatePromptScreen extends GetView<CreatePromptController> {
                             (e) => Obx(
                               () => GestureDetector(
                                 onTap: () {
-                                  print(e.id);
                                   controller.selectedStyleId.value = e.id;
                                 },
                                 child: StyleItem(
@@ -255,12 +254,12 @@ class StyleItem extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: isSelected ? 110 : 100,
-          height: isSelected ? 110 : 100,
+          width: isSelected ? 115 : 100,
+          height: isSelected ? 115 : 100,
           margin: const EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
             border: isSelected
-                ? Border.all(color: Colors.orange)
+                ? Border.all(color: Colors.red, width: 1.5)
                 : Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(15),
             boxShadow: const [
