@@ -115,10 +115,10 @@ class HomeScreen extends GetView<HomeController> {
                     height: 30,
                   ),
                   Menu(
-                    suffixWidget: Image.asset(
-                      'assets/icons/pen_color_icon.png',
-                      width: 20,
-                    ),
+                    // suffixWidget: Image.asset(
+                    //   'assets/icons/pen_color_icon.png',
+                    //   width: 20,
+                    // ),
                     title: 'Create',
                     widgetChild: GestureDetector(
                       onTap: () {
@@ -156,10 +156,10 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ),
                   Menu(
-                    suffixWidget: Image.asset(
-                      'assets/icons/pen_color_icon.png',
-                      width: 20,
-                    ),
+                    // suffixWidget: Image.asset(
+                    //   'assets/icons/pen_color_icon.png',
+                    //   width: 20,
+                    // ),
                     title: 'Projects',
                     leftText: 'See All',
                     widgetChild: GestureDetector(
@@ -186,10 +186,10 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ),
                   Menu(
-                    suffixWidget: Image.asset(
-                      'assets/icons/pen_color_icon.png',
-                      width: 20,
-                    ),
+                    // suffixWidget: Image.asset(
+                    //   'assets/icons/pen_color_icon.png',
+                    //   width: 20,
+                    // ),
                     title: 'Recent',
                     widgetChild: Wrap(
                       spacing: 10,
@@ -197,13 +197,16 @@ class HomeScreen extends GetView<HomeController> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.to(DetailImage(), arguments: {'image_id': creationController.images.first.id,});
+                            Get.to(DetailImage(), arguments: {
+                              'image_id': creationController.images.first.id,
+                            });
                           },
                           child: Container(
                             height: Get.width * 0.29,
                             width: Get.width * 0.29,
                             decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey,
@@ -225,10 +228,10 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ),
                   Menu(
-                    suffixWidget: Image.asset(
-                      'assets/icons/pen_color_icon.png',
-                      width: 20,
-                    ),
+                    // suffixWidget: Image.asset(
+                    //   'assets/icons/pen_color_icon.png',
+                    //   width: 20,
+                    // ),
                     title: 'Event',
                     widgetChild: Container(
                       width: Get.width,
@@ -293,10 +296,10 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ),
                   Menu(
-                    suffixWidget: Image.asset(
-                      'assets/icons/discover-icon.png',
-                      width: 20,
-                    ),
+                    // suffixWidget: Image.asset(
+                    //   'assets/icons/discover-icon.png',
+                    //   width: 20,
+                    // ),
                     title: 'Discover',
                     leftText: 'Get Featured',
                     widgetChild: StaggeredGrid.count(
@@ -349,13 +352,13 @@ class HomeScreen extends GetView<HomeController> {
 class Menu extends StatelessWidget {
   Menu({
     super.key,
-    required this.suffixWidget,
+    // required this.suffixWidget,
     required this.title,
     this.leftText,
     this.widgetChild,
   });
 
-  Widget suffixWidget;
+  // Widget suffixWidget;
   String title;
   String? leftText;
   Widget? widgetChild;
@@ -370,7 +373,7 @@ class Menu extends StatelessWidget {
         ),
         Row(
           children: [
-            suffixWidget,
+            // suffixWidget,
             const SizedBox(
               width: 5,
             ),

@@ -145,13 +145,17 @@ class CreatePromptScreen extends GetView<CreatePromptController> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          color: Colors.grey[200],
+          elevation: 1.0,
+          color: Colors.grey[300],
           child: Padding(
             padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
             child: SizedBox(
-              height: Get.height * 0.22,
+              height: Get.height * 0.25,
               child: Column(
                 children: [
+                  // const Divider(
+                  //   color: Colors.black,
+                  // ),
                   Row(
                     // mainAxisAlignment: MainAxisAlignment.end,
                     children: [

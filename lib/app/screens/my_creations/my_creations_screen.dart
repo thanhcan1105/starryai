@@ -45,6 +45,7 @@ class MyCreationsScreen extends GetView<MyCreationsController> {
         children: [
           Container(
             constraints: BoxConstraints(minHeight: Get.height * 0.1),
+            // height: Get.height * 0.1,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -129,7 +130,7 @@ class MyCreationsScreen extends GetView<MyCreationsController> {
             ),
           ),
           SizedBox(
-            height: Get.height * 0.7,
+            height: Get.height * 0.6,
             // color: Colors.amber,
             child: ListView(
               physics: const BouncingScrollPhysics(),
