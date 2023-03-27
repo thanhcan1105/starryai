@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:starryai/app/controllers/login_controller.dart';
 
+import 'component/login-with_google.dart';
+
 class LoginScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
+    LoginController controller = Get.put(LoginController());
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -128,9 +131,10 @@ class LoginScreen extends GetView<LoginController> {
                         ],
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GestureDetector(
                             onTap: () {
@@ -141,6 +145,13 @@ class LoginScreen extends GetView<LoginController> {
                               width: Get.width * 0.5,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(40),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    blurRadius: 3,
+                                    offset: Offset(0.3, 0.3),
+                                  )
+                                ],
                                 gradient: const LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
@@ -161,34 +172,23 @@ class LoginScreen extends GetView<LoginController> {
                             ),
                           ),
                           const Spacer(),
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              color: Colors.amber,
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image:
-                                    AssetImage('assets/icons/facebook-icon.png'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: const BoxDecoration(
-                              color: Colors.amber,
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage('assets/icons/google-icon.png'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
+                          // Container(
+                          //   height: 60,
+                          //   width: 60,
+                          //   decoration: const BoxDecoration(
+                          //     color: Colors.amber,
+                          //     shape: BoxShape.circle,
+                          //     image: DecorationImage(
+                          //       image:
+                          //           AssetImage('assets/icons/facebook-icon.png'),
+                          //       fit: BoxFit.cover,
+                          //     ),
+                          //   ),
+                          // ),
+                          // const SizedBox(
+                          //   width: 20,
+                          // ),
+                          LoginWithGoogle(),
                         ],
                       ),
                       const SizedBox(

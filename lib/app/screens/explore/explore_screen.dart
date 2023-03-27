@@ -13,6 +13,7 @@ class ExploreScreen extends GetView<ExploreController> {
     ExploreController controller = Get.put(ExploreController());
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(

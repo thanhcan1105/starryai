@@ -9,10 +9,17 @@ class SplashController extends GetxController {
   @override
   void onInit() async {
     if (box.read('isFirstStart') == false) {
-      await Future.delayed(const Duration(milliseconds: 2000), () {
-        // Get.offAllNamed("bottom_menu");
-        Get.offAll(LoginScreen());
-      });
+      if (box.read('isLogin') == false) {
+        await Future.delayed(const Duration(milliseconds: 2000), () {
+          // Get.offAllNamed("bottom_menu");
+          Get.offAll(LoginScreen());
+        });
+      } else {
+        await Future.delayed(const Duration(milliseconds: 2000), () {
+          Get.offAllNamed("bottom_menu");
+          // Get.offAll(LoginScreen());
+        });
+      }
     } else {
       await Future.delayed(const Duration(milliseconds: 2000), () {
         // Get.offAllNamed("bottom_menu");

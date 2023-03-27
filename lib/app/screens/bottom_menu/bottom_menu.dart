@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:starryai/app/screens/menu/menu_screen.dart';
 
 import '../../controllers/home_controller.dart';
 import '../explore/explore_screen.dart';
@@ -25,8 +26,9 @@ class BottomMenuScreen extends StatefulWidget {
 class _BottomMenuScreenState extends State<BottomMenuScreen> {
   List<Widget> listWidget = [
     const HomeScreen(),
-    MyCreationsScreen(),
+    const MyCreationsScreen(),
     const ExploreScreen(),
+    const MenuScreen()
   ];
   int indexSelected = 0;
 
@@ -37,6 +39,7 @@ class _BottomMenuScreenState extends State<BottomMenuScreen> {
         child: listWidget.elementAt(indexSelected),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -49,6 +52,10 @@ class _BottomMenuScreenState extends State<BottomMenuScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu),
+            label: 'Menu',
           ),
         ],
         currentIndex: indexSelected,

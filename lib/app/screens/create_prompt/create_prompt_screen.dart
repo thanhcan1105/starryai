@@ -30,8 +30,20 @@ class CreatePromptScreen extends GetView<CreatePromptController> {
                           width: Get.width * 0.1,
                         ),
                         const Spacer(),
-                        const Text('Lyra'),
-                        const Icon(Icons.arrow_drop_down),
+                        GestureDetector(
+                          onTap: () {
+                            _showBottomSheet(context);
+                          },
+                          child: Row(
+                            children: const [
+                              Text(
+                                'Art',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Icon(Icons.arrow_drop_down),
+                            ],
+                          ),
+                        ),
                         const Spacer(),
                         GestureDetector(
                           onTap: () {
@@ -286,4 +298,143 @@ class StyleItem extends StatelessWidget {
       ],
     );
   }
+}
+
+void _showBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 30,
+          // horizontal: 10,
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: Get.width * 0.33,
+                ),
+                Container(
+                  width: Get.width * 0.33,
+                  // color: Colors.red,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Select AI',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Container(
+                    width: Get.width * 0.33,
+                    // color: Colors.red,
+                    alignment: Alignment.centerRight,
+                    child: const Padding(
+                      padding: EdgeInsets.only(right: 8.0),
+                      child: Text('Done'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            GestureDetector(
+              onTap: () {
+                print('1');
+                Get.back();
+              },
+              child: Container(
+                height: 130,
+                width: Get.width * 0.8,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/icons/art-icon-1.jpg'),
+                    fit: BoxFit.cover,
+                    opacity: 0.5,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Art',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Generate artwork with a wide range of artistic styles to choose',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                print('2');
+                Get.back();
+              },
+              child: Container(
+                height: 130,
+                width: Get.width * 0.8,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/icons/moutain-icon.jpg'),
+                    fit: BoxFit.cover,
+                    opacity: 0.5,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Picture',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Generate artwork with a wide range of artistic styles to choose',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

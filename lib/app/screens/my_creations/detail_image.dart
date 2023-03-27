@@ -1,10 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:starryai/app/controllers/my_creations_controller.dart';
-
-import '../../controllers/home_controller.dart';
 
 class DetailImage extends GetView<MyCreationsController> {
   const DetailImage({super.key});
@@ -71,15 +70,46 @@ class DetailImage extends GetView<MyCreationsController> {
                 const SizedBox(
                   height: 10,
                 ),
+                // CarouselSlider.builder(itemCount: itemCount, itemBuilder: itemBuilder, options: options)
                 ClipRRect(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   ),
-                  child: CachedNetworkImage(
-                    imageUrl: controller.images.where((element) => element.id == id).first.image,
-                    // imageUrl: controller.images.first.image,
+                  child: CarouselSlider(
+                    items: controller.images.map((e) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            // width: Get.width,
+                            // margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                            // decoration:
+                            //     const BoxDecoration(color: Colors.amber),
+                            child: CachedNetworkImage(
+                              imageUrl: e.image,
+                              fit: BoxFit.cover,
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      // height: 800,
+                      viewportFraction:
+                          1, // hiển thị slide với độ rộng toàn bộ
+                      aspectRatio: 1 / 1, // tỷ lệ khung hình 16:9
+                      // autoPlay: true, // tự động chuyển slide
+                      enlargeCenterPage: true, // phóng to slide ở giữa
+                      // enlargeStrategy: CenterPageEnlargeStrategy.height,
+                      enableInfiniteScroll: true, // lặp vô hạn các slide
+                    ),
                   ),
+                  // child: CachedNetworkImage(
+                  //   imageUrl: controller.images
+                  //       .where((element) => element.id == id)
+                  //       .first
+                  //       .image,
+                  // ),
                 ),
                 Container(
                   color: Colors.white,

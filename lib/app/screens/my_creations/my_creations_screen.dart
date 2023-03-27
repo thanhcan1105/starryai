@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:starryai/app/controllers/my_creations_controller.dart';
 import 'package:starryai/app/screens/my_creations/component/items_created.dart';
+import 'package:starryai/app/screens/my_creations/detail_image.dart';
 
 class MyCreationsScreen extends GetView<MyCreationsController> {
   const MyCreationsScreen({super.key});
@@ -12,6 +13,7 @@ class MyCreationsScreen extends GetView<MyCreationsController> {
     Get.put(MyCreationsController());
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
@@ -129,17 +131,33 @@ class MyCreationsScreen extends GetView<MyCreationsController> {
               ),
             ),
           ),
-          SizedBox(
-            height: Get.height * 0.6,
-            // color: Colors.amber,
-            child: ListView(
+
+          //Size small
+
+          Expanded(
+            child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-              children: const [
-                Itemcreated(),
-                Itemcreated(),
-              ],
+              child: Wrap(
+                spacing: Get.width * 0.05,
+                runSpacing: 20,
+                children: [
+                  SmallSize(),
+                  SmallSize(),
+                ],
+              ),
             ),
-          )
+          ),
+
+          //Size full
+          // Expanded(
+          //   child: ListView(
+          //     physics: const BouncingScrollPhysics(),
+          //     children: const [
+          //       Itemcreated(),
+          //       Itemcreated(),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -152,6 +170,58 @@ class MyCreationsScreen extends GetView<MyCreationsController> {
           Icons.add,
           color: Colors.green,
           size: 30,
+        ),
+      ),
+    );
+  }
+}
+
+class SmallSize extends StatelessWidget {
+  SmallSize({
+    super.key,
+  });
+
+  MyCreationsController controller = MyCreationsController();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(const DetailImage(),
+            arguments: {'image_id': controller.images.first.id});
+      },
+      child: Container(
+        height: Get.width * 0.5,
+        width: Get.width * 0.4,
+        decoration: BoxDecoration(
+            color: Colors.amber,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 3,
+                offset: Offset(0.3, 0.3),
+              )
+            ]),
+        child: Stack(
+          children: [
+            SizedBox(
+              height: Get.width * 0.5,
+              width: Get.width * 0.4,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: CachedNetworkImage(
+                  imageUrl: controller.images.first.image,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const Positioned(
+              top: 10,
+              right: 10,
+              child: Icon(Icons.more_horiz,),
+            ),
+          ],
         ),
       ),
     );

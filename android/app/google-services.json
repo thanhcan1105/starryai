@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "653290526908",
+    "project_id": "authai-b656e",
+    "storage_bucket": "authai-b656e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653290526908:android:26f7e190186d1dfe2158b9",
+        "android_client_info": {
+          "package_name": "com.thanhcan.starryai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653290526908-vag2ur1srq0i1ukcpl7iskqrj4j6hcd8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thanhcan.starryai",
+            "certificate_hash": "a33a85358d8d2dc40958f84605c33f5c072d4732"
+          }
+        },
+        {
+          "client_id": "653290526908-8bcbv6gsg41kf3892hbsblej6s9v9ut0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq5ePWii-p9MUhvOdNiWMiUU9F2cQJKAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653290526908-8bcbv6gsg41kf3892hbsblej6s9v9ut0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

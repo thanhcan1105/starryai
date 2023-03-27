@@ -5,6 +5,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:starryai/app/controllers/intro_controller.dart';
 
+import '../auth/login_screen.dart';
+
 class IntroScreen extends GetView<IntroController> {
   IntroScreen({super.key});
 
@@ -56,7 +58,7 @@ class IntroScreen extends GetView<IntroController> {
             : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
         onDone: () {
           // When done button is press
-          Get.offAllNamed('bottom_menu');
+          Get.offAll(LoginScreen());
           box.write('isFirstStart', false);
         },
         dotsDecorator: const DotsDecorator(
